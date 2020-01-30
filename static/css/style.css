@@ -24,6 +24,16 @@ body {
     font-size: 11px;
     height: 28px;
 }
+ .card-box{
+    -moz-box-shadow: 0 0 5px #888;
+    -webkit-box-shadow: 0 0 5px#888;
+    box-shadow: 0 0 5px #888;
+ }
+ .card-box:hover{
+    -moz-box-shadow: 0 0 6px #888;
+    -webkit-box-shadow: 0 0 6px#888;
+    box-shadow: 0 0 6px #888;
+ }
 
 .mt {
     margin-top: 100px;
@@ -33,6 +43,11 @@ body {
 .loginSlide {
     height: 300px;
     width: 100%;
+}
+.portfolioImg{
+    width:100%;
+    height:200px;
+
 }
 
 a {

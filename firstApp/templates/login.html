@@ -1,9 +1,23 @@
-{% extends "main.html" %} {% block content %} {% load static %}
+{% extends "include/main.html" %}
+{% block style %}
+<style>
+    label {
+        font-size:11px;
+    }
+</style>
+{% endblock style %}
+{% block content %} {% load static %}
 <section class="mt">
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
+        <div class="col-md-12 col-lg-12">
+            <h3>Login</h3>
+        </div>
+        <div class="row" style="margin-top:-30px;">
+            <div class="col-md-4 col-lg-4 pt-4">
+                <div class="card p-2 card-box" style="min-height:300px;">
                 {{loginForm}}
+                     <input type="submit" class="btn btn-primary mt-4 inputsize" value="Login" >
+                </div>
             </div>
             <div class="col-md-8 pt-4">
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
