@@ -4,14 +4,22 @@ from .forms import *
 from .models import *
 from django.views import View
 from .models import SignUp
+from django.contrib import messages
 def index(request):
     portfolio=Portfolio.objects.all()
     return render(request,'index.html',{'portfolio':portfolio})
 
 class AuthView(View):
     def login(request):
-        loginForm = LoginForm()
-        return render(request, 'login.html', {'loginForm': loginForm})
+        if request.method == 'POST':
+            form = LoginForm()
+            if form.is_valid():
+                username = form.cleaned_data['username']
+                password = form.cleaned_data['password']
+                return HttpResponseRedirect('register')
+        else:
+            form = LoginForm()
+        return render(request, 'login.html', {'form': form})
 
     def register(request):
         if request.method == 'POST':
@@ -23,6 +31,7 @@ class AuthView(View):
                 mobile = form.cleaned_data['mobile']
                 user = SignUp(username = username,password=password,email=email,mobile_telephone=mobile)
                 user.save()
+                messages.success(request, f'Account created for {username}!')
 
                 return HttpResponseRedirect('/userHome')
         else:

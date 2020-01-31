@@ -4,22 +4,62 @@
     label {
         font-size:11px;
     }
+    .form-group{
+        margin-bottom: 0 !important;
+    }
+    .errorlist{
+        padding:0;
+        margin:0;
+    }
+    .errorlist li{
+        list-style: none;
+        color:#D80522;
+        font-size:11px;
+        font-weight: 600;
+    }
+    .have-login{
+        font-size: 11px;
+        text-align: center;
+    }
+
 </style>
 {% endblock style %}
 {% block content %} {% load static %}
 <section class="mt">
     <div class="container">
         <div class="col-md-12 col-lg-12">
-            <h3>Register</h3>
+            <p style="font-size:18px; font-weight:900">Register</p>
+            <p style="width:70px; background:#df7000;height:3px;margin-top:-30px;"></p>
         </div>
         <div class="row" style="margin-top:-30px;">
             <div class="col-md-4 col-lg-4 pt-4">
                 <div class="card p-2 card-box" style="min-height:300px;">
                     <form method="post" action="register">
                         {% csrf_token %}
-                        {{form}}
+                        <div class="form-group">
+                             <label>{{form.username.label}}</label>
+                             {{form.username}}
+                             {{ form.username.errors  }}
+                        </div>
+                         <div class="form-group">
+                             <label>{{form.mobile.label}}</label>
+                             {{form.mobile}}
+                             {{ form.mobile.errors  }}
+                        </div>
+                         <div class="form-group">
+                             <label>{{form.email.label}}</label>
+                             {{form.email}}
+                             {{ form.email.errors  }}
+                        </div>
+                         <div class="form-group">
+                             <label>{{form.password.label}}</label>
+                             {{form.password}}
+                             {{ form.password.errors  }}
+                        </div>
+
                         <input type="submit" class="btn btn-primary mt-4 inputsize" value="Save" >
                     </form>
+                    <p class="have-login">Have already an account ? <a href="login"> Login</a></p>
                 </div>
 
             </div>
@@ -32,7 +72,7 @@
                     </ol>
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item active">
-                            <img class="d-block img-fluid loginSlide" src="{% static 'img/portfolio/web1.jpg' %}" alt="First slide">
+                            <img class="d-block img-fluid loginSlide-regi" src="{% static 'img/portfolio/web1.jpg' %}" alt="First slide">
                             <div class="carousel-caption d-none d-md-block">
                                 <div class="banner-text">
                                     <h2>This is Heaven</h2>
@@ -41,7 +81,7 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block img-fluid loginSlide" src="{% static 'img/portfolio/web2.jpg' %}" alt="First slide">
+                            <img class="d-block img-fluid loginSlide-regi" src="{% static 'img/portfolio/web2.jpg' %}" alt="First slide">
                             <div class="carousel-caption d-none d-md-block">
                                 <div class="banner-text">
                                     <h2>This is Heaven</h2>
@@ -50,7 +90,7 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="d-block img-fluid loginSlide" src="{% static 'img/portfolio/app1.jpg' %}" alt="First slide">
+                            <img class="d-block img-fluid loginSlide-regi" src="{% static 'img/portfolio/app1.jpg' %}" alt="First slide">
                             <div class="carousel-caption d-none d-md-block">
                                 <div class="banner-text">
                                     <h2>This is Heaven</h2>
