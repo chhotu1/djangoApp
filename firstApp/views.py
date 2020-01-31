@@ -7,7 +7,8 @@ from .models import SignUp
 from django.contrib import messages
 def index(request):
     portfolio=Portfolio.objects.all()
-    return render(request,'index.html',{'portfolio':portfolio})
+    team = Team.objects.all()
+    return render(request,'index.html',{'portfolio':portfolio,'team':team})
 
 class AuthView(View):
     def login(request):

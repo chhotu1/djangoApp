@@ -404,6 +404,15 @@
             <div class="col-lg-8">
 
                 <div class="owl-carousel testimonials-carousel wow fadeInUp">
+                    {% for ourTeam in team %}
+
+                     <div class="testimonial-item">
+                        <img src="media/{{ MEDIA_URL }}/{{ ourTeam.image }}" class="testimonial-img" alt="{{ ourTeam.name }}">
+                        <h3>{{ ourTeam.name }}</h3>
+                        <h4>{{ ourTeam.specialization }}</h4>
+                        <p>{{ ourTeam.description }} </p>
+                    </div>
+                    {% endfor %}
 
                     <div class="testimonial-item">
                         <img src="{% static 'img/testimonial-1.jpg' %}" class="testimonial-img" alt="">
