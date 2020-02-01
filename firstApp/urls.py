@@ -10,4 +10,5 @@ urlpatterns = [
     path('login', AuthView.login, name='login'),
     path('register', AuthView.register, name='register'),
     path('userHome', AuthUserView.userHome, name='userHome'),
+    path('contact', views.contact, name='contact'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -165,19 +165,20 @@ h6 {
 --------------------------------------------------------------*/
 
 #header {
-    height: 80px;
+    height: 50px;
     transition: all 0.5s;
     z-index: 997;
     transition: all 0.5s;
-    padding: 20px 0;
-    background: #fff;
+    padding: 10px 0;
+    background: #ffffff;
     box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.3);
 }
 
 #header.header-scrolled,
 #header.header-pages {
-    height: 60px;
-    padding: 10px 0;
+    height: 45px;
+    padding: 7px 0;
+    background: #ffffff;
 }
 
 #header .logo h1 {
@@ -199,7 +200,7 @@ h6 {
 #header .logo img {
     padding: 0;
     margin: 7px 0;
-    max-height: 26px;
+    max-height: 20px;
 }
 
 .main-pages {
@@ -307,9 +308,10 @@ h6 {
     display: block;
     position: relative;
     color: #004289;
-    padding: 10px 15px;
+    padding: 8px 11px;
+
     transition: 0.3s;
-    font-size: 14px;
+    font-size: 13px;
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
 }

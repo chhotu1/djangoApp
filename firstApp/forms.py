@@ -3,6 +3,7 @@ from django.forms import ValidationError
 from .models import SignUp
 from django.contrib.auth.models import User
 
+
 class LoginForm(forms.Form):
     username=forms.CharField(label='username',max_length=20,required=True,
     widget=forms.TextInput(attrs={'class':'form-control inputsize','placeholder':'Username','type':'text'}))
@@ -11,7 +12,7 @@ class LoginForm(forms.Form):
 
     def clean_username(self):
         username = self.cleaned_data['username']
-        if len(username) > 0:
+        if len(username) < 4 :
             raise forms.ValidationError("username is too short")
         return username
 
@@ -62,12 +63,33 @@ class RegisterForm(forms.Form):
             raise forms.ValidationError("This email has already existed.")
         return email
 
-    def clean_mobile(self):
-        mobile = self.cleaned_data['mobile']
-        if (mobile.isalnum()):
-            raise forms.ValidationError("Please enter a valid mobile number")
-        return  mobile
+    # def clean_mobile(self):
+    #     mobile = self.cleaned_data['mobile']
+    #     if (mobile.isalnum()):
+    #         raise forms.ValidationError("Please enter a valid mobile number")
+    #     return  mobile
 
 
+class ContactForm(forms.Form):
+    name=forms.CharField(label='Name',max_length=60,required=True,
+    widget=forms.TextInput(attrs={'class':'form-control inputsize','type':'text','placeholder':'Name'}))
+    mobile = forms.CharField(label='Mobile',max_length=10, required=True,min_length=10,
+    widget=forms.TextInput(attrs={'class': 'form-control inputsize', 'type': 'number','placeholder':'Mobile'}))
+    email=forms.EmailField(label='Email',max_length=100,required=True,
+    widget=forms.TextInput(attrs={'class':'form-control inputsize','placeholder':'email','type':'email'}))
+    message = forms.CharField(label='Password',required=True,
+    widget=forms.Textarea(attrs={'class': 'form-control inputsize','placeholder': 'About','style':'height: 80px;'}))
+
+    def clean_name(self):
+        name = self.cleaned_data['name']
+        if len(name) < 4:
+            raise forms.ValidationError("name is too short")
+        return name
+
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        if not email.endswith('@gmail.com'):
+            raise ValidationError('email is not valid')
+        return email
 
 
